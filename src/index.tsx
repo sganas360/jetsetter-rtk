@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { makeServer } from './api';
 import Application from './components/application';
-
+import { Provider } from 'react-redux';
+import { store } from './store'
 import './index.css';
 
 const environment = process.env.NODE_ENV;
@@ -14,6 +15,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Application />
+    <Provider store={store}>
+      <Application />
+    </Provider>
   </React.StrictMode>,
 );
